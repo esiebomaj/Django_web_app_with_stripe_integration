@@ -3,9 +3,13 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.urls import reverse
+from checkout.forms import DonationForm
+
 
 import stripe
-stripe.api_key = settings.STRIPE_SECRET_KEY
+import os
+
+stripe.api_key = 'sk_test_5UBH6SjTB12sryQRxLTIUfyL00bROW3YcZ'
 
 
 # Create your views here.
@@ -25,15 +29,36 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 @login_required
 def checkoutview(request):
-    context={}
-    return render(request, 'checkout/checkout.html', context)
+	form=DonationForm()
+
+	context={'d_form':form}
+    
+	return render(request, 'checkout/checkout.html', context )
 
     
 
 def charge(request): # new
-    amount=5
+    
     if request.method =='POST':
-        print('data : ', request.POST)
+    	print(request.POST)
+    	token=request.POST['stripeToken']
+    	amount=int(request.POST['amount'])
+    	
+
+    	customer=stripe.Customer.create(
+    		
+    		email=request.POST['email'],
+    		name=request.POST['name'],
+    		source=request.POST['stripeToken']
+    		
+    		)
+
+    	stripe.Charge.create(
+    		customer=customer,
+    		amount=amount*100,
+    		currency="usd",
+    		description=f"{amount}usd Donation!!",
+)
 
     return redirect(reverse('success', args=[amount]))
 

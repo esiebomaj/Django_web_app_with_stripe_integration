@@ -29,7 +29,7 @@ SECRET_KEY = '+=9b6ijg8z%^zdpdn9ygz5qm(v5nhdx2@5=9r$*th!t6_=-7td'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','jeremaih.herokuapp.com']
 
 
 
@@ -60,6 +60,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
+
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -156,6 +159,8 @@ STATICFILES_DIRS=[
     os.path.join(BASE_DIR, 'static'),
 ]
 
+STATIC_ROOT= os.path.join(BASE_DIR, 'staticfiles')
+
 MEDIA_URL='/media/'
 
 MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
@@ -201,8 +206,8 @@ STRIPE_PUBLISHABLE_KEY = os.environ.get('stripe_publishable_key')
 
 
 
-
-
+if os.getcwd()=='/app':
+    DEBUG=False
 
 
 
