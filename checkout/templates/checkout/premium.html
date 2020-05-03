@@ -1,19 +1,53 @@
 {%extends 'profiles/base.html'%}
+{%load static%}
 
 {%block content%}
-<h2 class="text-center">Suscribe to my premium plans</h2>
-<div class="row mt-5">
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/base.css'%}">
+
+<h2 class="text-center ">Suscribe to my premium plans</h2>
+<div class="row mt-5 mb-5 ">
 	
-	<div class=" col-md-4">
-		<p>ooooooooo ooooooooo oooooooooooo ooooooooooo oooooo oooooo o oooooo ooooooooooo oooooomskf ffffffffff f ffffff ff;;;;;;;; ;;;;;;;;; ;kmffffff fffffff f fffffker r rrrrrrr rrrrrrrrr rrrrrrrmvvv v vvvvvvv vvvvvvvvv v verjjjjjj jjj jjjjjjjjj jjvnnnnnnn nnnnnnnnnnn nnnieeeeeee eeeeeeee eenvcc cccccccc c ccccccccc ccfhhhhhhh hhhhhhhh cshhhhhhh hhhhh hhhhhhhhhh h h hh hhhhh hhhhh hhhhhhhhhh hhhhhhhhhhhh hhhhh h h hhhhhhhhhhh hhcc ccccc ccccc cc c cccccccc ccccc ccc cccccccc chfff ffffffffff ff  cfhhhhhh hhhhhhhh hhhhhefwww wwefwfvf vvrv gwf</p>
+	<div class=" ml-5 mr-5 mb-2 col-md-3 rounded">
+		<h3 class="text-center">Try Now!!</h3>
+		<p class="text-center"><strong>7 days Free trial</strong></p>
+		<ul>
+			<li>access to this </li>
+			<li>Access to that</li>
+			<li>Seven days free trial</li>
+			<li>Awsome</li>
+		</ul>
+
+		<p>ooooooooo ooooooooo oooooooooooo ooooooooooo oooooo oooooo o oooooo ooooooooooo oooooomskf ffffffffff f ffffff ff;;;;;;;; ;;;;;;;;; ;kmffffff fffffff f fffffker </p>
+
+		<a href="{%url 'subcheckout' 0 %}" class="mb-3 btn btn-block btn-light">Start trial now!!</a>
 	</div>
 
-	<div class="col-md-4">
-		<p>ooooooooo ooooooooo oooooooooooo ooooooooooo oooooo oooooo o oooooo ooooooooooo oooooomskf ffffffffff f ffffff ff;;;;;;;; ;;;;;;;;; ;kmffffff fffffff f fffffker r rrrrrrr rrrrrrrrr rrrrrrrmvvv v vvvvvvv vvvvvvvvv v verjjjjjj jjj jjjjjjjjj jjvnnnnnnn nnnnnnnnnnn nnnieeeeeee eeeeeeee eenvcc cccccccc c ccccccccc ccfhhhhhhh hhhhhhhh cshhhhhhh hhhhh hhhhhhhhhh h h hh hhhhh hhhhh hhhhhhhhhh hhhhhhhhhhhh hhhhh h h hhhhhhhhhhh hhcc ccccc ccccc cc c cccccccc ccccc ccc cccccccc chfff ffffffffff ff  cfhhhhhh hhhhhhhh hhhhhefwww wwefwfvf vvrv gwf</p>
+	<div class="ml-5 mr-5 mb-2 col-md-3 rounded">
+			<h3 class="text-center">Premium Monthly</h3>
+		<p class="text-center"><strong>10 $ / month</strong></p>
+		<ul>
+			<li>access to this </li>
+			<li>Access to that</li>
+			<li>Seven days free trial</li>
+			<li>Awsome</li>
+		</ul>
+
+		<p>ooooooooo ooooooooo oooooooooooo ooooooooooo oooooo oooooo o oooooo ooooooooooo oooooomskf ffffffffff f ffffff ff;;;;;;;; ;;;;;;;;; ;kmffffff fffffff f fffffker r rrrrrrr</p>
+		<a href="{%url 'subcheckout' 10%}" class="mb-3 btn btn-block btn-light">Pay now!!</a>
 	</div>
 
-	<div class="col-md-4">
-		<p>ooooooooo ooooooooo oooooooooooo ooooooooooo oooooo oooooo o oooooo ooooooooooo oooooomskf ffffffffff f ffffff ff;;;;;;;; ;;;;;;;;; ;kmffffff fffffff f fffffker r rrrrrrr rrrrrrrrr rrrrrrrmvvv v vvvvvvv vvvvvvvvv v verjjjjjj jjj jjjjjjjjj jjvnnnnnnn nnnnnnnnnnn nnnieeeeeee eeeeeeee eenvcc cccccccc c ccccccccc ccfhhhhhhh hhhhhhhh cshhhhhhh hhhhh hhhhhhhhhh h h hh hhhhh hhhhh hhhhhhhhhh hhhhhhhhhhhh hhhhh h h hhhhhhhhhhh hhcc ccccc ccccc cc c cccccccc ccccc ccc cccccccc chfff ffffffffff ff  cfhhhhhh hhhhhhhh hhhhhefwww wwefwfvf vvrv gwf</p>
+	<div class="ml-4 mr-4 mb-2 col-md-3 rounded">
+	 	<h3 class="text-center">Premium Yearly</h3>
+		<p class="text-center"><strong>100 $ / year <span class="badge badge-success">save 20$</span></strong></p>
+		<ul>
+			<li>access to this </li>
+			<li>Access to that</li>
+			<li>Seven days free trial</li>
+			<li>Awsome</li>
+		</ul>
+		<p>ooooooooo ooooooooo oooooooooooo ooooooooooo oooooo oooooo o oooooo ooooooooooo oooooomskf ffffffffff f ffffff ff;;;;;;;; ;;;;;;;;; ;kmffffff fffffff f fffffker r rrrrrrr rrrrrrrrr rrrrrrrmvvv v vvvvvvv vvvvvvvvv v verjjjjjj jjj </p>
+		<a href="{%url 'subcheckout' 100%}" class="mb-3 btn btn-block btn-light">Pay now!!</a>
 	</div>
 </div>
 

@@ -68,7 +68,12 @@ def successMsg(request, args):
     amount =args
     return render(request, 'checkout/success.html', {'amount':amount})
 
-
+@login_required
 def premium(request):
 	context={}
 	return render(request, 'checkout/premium.html', context)
+@login_required
+def subcheckoutview(request, amount):
+
+	context={'amount':amount}
+	return render(request, 'checkout/subcheckout.html', context)

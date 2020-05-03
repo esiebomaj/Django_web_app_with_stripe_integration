@@ -1,7 +1,9 @@
 h2{
-	/*color: #1a535c;*/
-    color: red;
+	color: #1a535c;
+   
 	text-align : left;
+}
+
 }
 
 .span1{
@@ -25,6 +27,12 @@ font-size:35px;
 }
 
 
+
+.col-md-3 {
+
+    background-color: rgb(100, 165, 107);
+}
+
 .bg-light {
     background-color: #1a535c!important;
 }
@@ -46,6 +54,38 @@ body {
     background-color: #4ecdc4;
     border-radius: .3rem;
 }
+
+
+
+
+.StripeElement {
+  box-sizing: border-box;
+
+  height: 40px;
+
+  padding: 10px 12px;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
 
 
 

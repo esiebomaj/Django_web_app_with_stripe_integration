@@ -157,7 +157,7 @@ STATICFILES_DIRS=[
     os.path.join(BASE_DIR, 'static'),
 ]
 
-# STATIC_ROOT= os.path.join(BASE_DIR, 'staticfiles')
+
 
 MEDIA_URL='/media/'
 
@@ -204,8 +204,7 @@ STRIPE_PUBLISHABLE_KEY = os.environ.get('stripe_publishable_key')
 
 
 
-if os.getcwd()=='/app':
-    DEBUG=False
+
 
 
 

@@ -30,6 +30,7 @@ urlpatterns = [
     path('profile/', profile_views.profileview, name='profile'),
     path('contact/', profile_views.contactview, name='contact'),
     path('checkout/', checkout_views.checkoutview, name='checkout'),
+    path('subcheckout/<int:amount>', checkout_views.subcheckoutview, name='subcheckout'),
     path('charge/', checkout_views.charge, name='charge'),
     path('success/<str:args>/', checkout_views.successMsg, name='success'),
     path('premium/', checkout_views.premium, name='premium'),
