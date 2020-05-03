@@ -67,3 +67,8 @@ def charge(request): # new
 def successMsg(request, args):
     amount =args
     return render(request, 'checkout/success.html', {'amount':amount})
+
+
+def premium(request):
+	context={}
+	return render(request, 'checkout/premium.html', context)

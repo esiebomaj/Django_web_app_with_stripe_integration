@@ -32,6 +32,7 @@ urlpatterns = [
     path('checkout/', checkout_views.checkoutview, name='checkout'),
     path('charge/', checkout_views.charge, name='charge'),
     path('success/<str:args>/', checkout_views.successMsg, name='success'),
+    path('premium/', checkout_views.premium, name='premium'),
 ]
 
 
