@@ -63,6 +63,29 @@
     <hr>
 
   </div>
+
+  <div class="row">
+    <div class="col-md-6 offset-3 pb-3 mb-4 border-bottom">
+      <h3>Post section</h3>
+      {% for object in object_list %}
+        <h4>Title : <a href="{%url 'post_detail' object.pk %}">{{object.title}}</a></h4>
+        {{object.content}}
+        <br>
+       <strong>allowed memberships :</strong> 
+        <ul>
+          {%for i in object.allowed_memberships.all%}
+          <li class="badge badge-success">{{i}}</li>
+          
+          {%endfor%}
+        </ul>
+        
+      {%endfor%}
+    </div>
+    
+
+  </div>
+
+
   <div class="row">
     <div class="col-md-6 offset-3">
       <form action="{%url 'checkout'%}" class="form" >

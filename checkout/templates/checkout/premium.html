@@ -8,47 +8,51 @@
 <h2 class="text-center ">Suscribe to my premium plans</h2>
 <div class="row mt-5 mb-5 ">
 	
-	<div class=" ml-5 mr-5 mb-2 col-md-3 rounded">
-		<h3 class="text-center">Try Now!!</h3>
-		<p class="text-center"><strong>7 days Free trial</strong></p>
+
+
+	{%for membership in object_list%}
+	{%if membership.Membership_type != 'Free'%}
+	<div class="ml-4 mr-5 mb-2 col-md-3 rounded">
+			<h3 class="text-center">Premium {{membership.Membership_type}}</h3>
+		<p class="text-center"><strong>{{membership.price}}</strong></p>
 		<ul>
+			<p><strong>Available posts</strong></p>
+			{% for post in membership.post_set.all %}
+
+				<li>{{post.title}}</li>
+			
+			{%endfor%}
+		</ul>
+		
+		<ul>
+			<p><strong>Other access</strong></p>
 			<li>access to this </li>
 			<li>Access to that</li>
 			<li>Seven days free trial</li>
 			<li>Awsome</li>
 		</ul>
 
-		<p>ooooooooo ooooooooo oooooooooooo ooooooooooo oooooo oooooo o oooooo ooooooooooo oooooomskf ffffffffff f ffffff ff;;;;;;;; ;;;;;;;;; ;kmffffff fffffff f fffffker </p>
+		<form method="POST" action="{%url 'premium'%}">
+			{%csrf_token%}
+			{%if user.usermembership.membership.Membership_type  != membership.Membership_type %}
 
-		<a href="{%url 'subcheckout' 0 %}" class="mb-3 btn btn-block btn-light">Start trial now!!</a>
+			<button class="mb-3 btn btn-block btn-light">Select</button>
+			{%else%}
+			<p><small>This is your current membership</small></p>
+			{%endif%}
+
+			<input type="hidden" name="membership_type" value="{{membership.Membership_type}}">
+
+		</form>
+		
 	</div>
+	{%endif%}
+	{%endfor%}
 
-	<div class="ml-5 mr-5 mb-2 col-md-3 rounded">
-			<h3 class="text-center">Premium Monthly</h3>
-		<p class="text-center"><strong>10 $ / month</strong></p>
-		<ul>
-			<li>access to this </li>
-			<li>Access to that</li>
-			<li>Seven days free trial</li>
-			<li>Awsome</li>
-		</ul>
 
-		<p>ooooooooo ooooooooo oooooooooooo ooooooooooo oooooo oooooo o oooooo ooooooooooo oooooomskf ffffffffff f ffffff ff;;;;;;;; ;;;;;;;;; ;kmffffff fffffff f fffffker r rrrrrrr</p>
-		<a href="{%url 'subcheckout' 10%}" class="mb-3 btn btn-block btn-light">Pay now!!</a>
-	</div>
 
-	<div class="ml-4 mr-4 mb-2 col-md-3 rounded">
-	 	<h3 class="text-center">Premium Yearly</h3>
-		<p class="text-center"><strong>100 $ / year <span class="badge badge-success">save 20$</span></strong></p>
-		<ul>
-			<li>access to this </li>
-			<li>Access to that</li>
-			<li>Seven days free trial</li>
-			<li>Awsome</li>
-		</ul>
-		<p>ooooooooo ooooooooo oooooooooooo ooooooooooo oooooo oooooo o oooooo ooooooooooo oooooomskf ffffffffff f ffffff ff;;;;;;;; ;;;;;;;;; ;kmffffff fffffff f fffffker r rrrrrrr rrrrrrrrr rrrrrrrmvvv v vvvvvvv vvvvvvvvv v verjjjjjj jjj </p>
-		<a href="{%url 'subcheckout' 100%}" class="mb-3 btn btn-block btn-light">Pay now!!</a>
-	</div>
+
+
 </div>
 
 

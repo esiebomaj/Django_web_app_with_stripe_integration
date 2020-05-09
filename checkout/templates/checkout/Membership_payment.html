@@ -5,16 +5,13 @@
 <script src="https://js.stripe.com/v3/"></script>
 
 <div class="col-sm-4 offset-4 rounded border border-danger">
-	<h2 class="text-center">Checkout for <span class="badge badge-danger"> {{amount}} $</span> </h2>
+	<h4>Selected Membership : {{selected_membership}}</h4>
+	<h5>Amount : {{selected_membership.price}}</h5>
 	<br>
 	<div class=" p-2">
-	<form action="{%url 'charge'%}" method="post" id="payment-form">
+	<form action="{%url 'payment'%}" method="post" id="payment-form">
 		{%csrf_token%}
-		<label for="email-form">
-			Email : 
-		</label>
-		<input  id="email-form" type="text" name="Email" placeholder="put your email here">
-		<br>
+		
 		<br>
 		
 			<div class="">

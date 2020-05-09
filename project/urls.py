@@ -26,14 +26,22 @@ from checkout import views as checkout_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
-    path('', profile_views.Home, name='home'),
-    path('profile/', profile_views.profileview, name='profile'),
+    path('', profile_views.Home.as_view(), name='home'),
+    path('<int:pk>', profile_views.PostDetailView.as_view(), name='post_detail'),
+    path('profile/<int:pk>', profile_views.ProfileView.as_view(), name='profile'),
+    path('profile/new', profile_views.ProfileCreateView.as_view(), name='profile_create'),
+    path('profile/<int:pk>/delete', profile_views.ProfileDeleteView.as_view(), name='profile_delete'),
+    path('profile/<int:pk>/update', profile_views.ProfileUpdateView.as_view(), name='profile_update'),
     path('contact/', profile_views.contactview, name='contact'),
     path('checkout/', checkout_views.checkoutview, name='checkout'),
-    path('subcheckout/<int:amount>', checkout_views.subcheckoutview, name='subcheckout'),
+    path('payment', checkout_views.PaymentView, name='payment'),
     path('charge/', checkout_views.charge, name='charge'),
     path('success/<str:args>/', checkout_views.successMsg, name='success'),
-    path('premium/', checkout_views.premium, name='premium'),
+    path('premium/', checkout_views.PremiumView.as_view(), name='premium'),
+    path('update_membership/<sub_id>', checkout_views.update_membership_view, name='update_membership'),
+    path('cancel_membership/', checkout_views.cancelsub, name='cancel_membership'),
+
+
 ]
 
 
